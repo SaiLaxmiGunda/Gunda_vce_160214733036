@@ -277,7 +277,31 @@ public class StudentGroup implements StudentArrayOperation {
 	
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		return null;
+		ArrayList<Student> mylist=new ArrayList<Student>();
+		int cnt=0;
+		try{
+			if(date==null)
+				throw new IllegalArgumentException();
+			else
+			{
+				for(int i=0;i<students.length;i++)
+				{
+					if(date==students[i].getBirthDate())
+						{mylist.add(students[i]);cnt++;}
+					
+				}
+				Student st[]=new Student[cnt];
+				st=(Student[])mylist.toArray();
+				return st;
+				
+			}
+		}
+		catch(IllegalArgumentException e)
+		{
+			System.out.println(e);
+			return null;
+		}
+		//return null;
 	}
 
 	
