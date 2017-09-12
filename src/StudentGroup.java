@@ -199,12 +199,12 @@ public class StudentGroup implements StudentArrayOperation {
 		}
 	}
 
-	@Override
+	
 	public void removeFromIndex(int index) {
 		// Add your implementation here
 	}
 
-	@Override
+	
 	public void removeFromElement(Student student) {
 		// Add your implementation here
 	}
@@ -274,31 +274,31 @@ public class StudentGroup implements StudentArrayOperation {
 		}
 	}
 
-	@Override
+	
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
 		return null;
 	}
 
-	@Override
+	
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
 		return null;
 	}
 
-	@Override
+	
 	public Student[] getNearBirthDate(Date date, int days) {
 		// Add your implementation here
 		return null;
 	}
 
-	@Override
+	
 	public int getCurrentAgeByDate(int indexOfStudent) {
 		// Add your implementation here
 		return 0;
 	}
 
-	@Override
+	
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
 		return null;
