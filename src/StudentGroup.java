@@ -304,13 +304,13 @@ public class StudentGroup implements StudentArrayOperation {
 		return null;
 	}
 
-	@Override
+	
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
 		return null;
 	}
 
-	@Override
+	
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
 		return null;
