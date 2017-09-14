@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.*;
 
 
 /**
@@ -307,8 +308,31 @@ public class StudentGroup implements StudentArrayOperation {
 	
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
+		Student[] studentarray=new Student[students.length];
+		try{
+		    int indx=0;
+		    if(firstDate==null || lastDate ==null)
+                throw new IllegalArgumentException();
+            else{
+                    for(int i=0;i<students.length;i++)
+                    {
+
+                        if(((students[i].getBirthDate().compareTo(firstDate))>=0)&&
+                            ((students[i].getBirthDate().compareTo(lastDate))<=0))
+                            studentarray[indx++]=students[i];
+                    }
+                    return studentarray;
+
+            }
+		}
+		catch(Exception e)
+		{
+		    System.out.println(e);
+		}
+
 		return null;
 	}
+
 
 	
 	public Student[] getNearBirthDate(Date date, int days) {
@@ -319,7 +343,10 @@ public class StudentGroup implements StudentArrayOperation {
 	
 	public int getCurrentAgeByDate(int indexOfStudent) {
 		// Add your implementation here
-		return 0;
+		 long age = new Date().getTime() - students[indexOfStudent].getBirthDate().getTime();
+
+		    return (int )age/(1000*60*60*24*365);
+		
 	}
 
 	
@@ -330,8 +357,35 @@ public class StudentGroup implements StudentArrayOperation {
 
 	
 	public Student[] getStudentsWithMaxAvgMark() {
-		// Add your implementation here
-		return null;
+	    try{
+	        double max=students[0].getAvgMark();
+
+		for(int i=1; i<students.length; i++)
+		{
+			if(students[i].getAvgMark()>max)
+			{
+				max=students[i].getAvgMark();
+			}
+		}
+		Student maxstudents[] = new Student[students.length];
+		int indx=0;
+		for(int i=0; i<students.length; i++)
+		{
+			if(max == students[i].getAvgMark())
+                {
+                     maxstudents[indx++]=students[i];
+            }
+		}
+		return maxstudents;
+
+	    }
+	    catch(Exception e)
+	    {
+	        System.out.println(e);
+
+	    }
+	    return null;
+
 	}
 
 	
