@@ -200,14 +200,48 @@ public class StudentGroup implements StudentArrayOperation {
 		}
 	}
 
-	
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+		try{
+			if(index<0 || index>=students.length) throw new IllegalArgumentException();
+			else
+			{
+				for(int i = index+1; i<=students.length; i++)
+				{
+					students[i] = null;
+				}
+			}
+		}catch(IllegalArgumentException e)
+		{
+			e.printStackTrace();
+		}
+		
 	}
 
 	
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		int index=-1;
+		try{
+			if(students == null) throw new IllegalArgumentException();
+			else
+			{
+				for(int i=0; i<students.length; i++)
+				{
+					if(students[i].equals(student)) index=i;
+				}
+				if(index==-1) throw new IllegalArgumentException();
+				else
+				{
+					for(int j=index+1; j<=students.length; j++)
+						students[j]=null;
+				}
+			}
+		}
+		catch(IllegalArgumentException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void removeToIndex(int index) {
@@ -352,8 +386,19 @@ public class StudentGroup implements StudentArrayOperation {
 	
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
-		return null;
+      Student studarr[]=new Student[students.length];
+      int indx=0;
+      for(int i=0;i<students.length;i++)
+      {
+        long agemsec = new Date().getTime() - students[i].getBirthDate().getTime();
+        int tempage=(int )agemsec/(1000*60*60*24*365);
+        if(tempage==age)
+          studarr[indx++]=students[i];
+      }
+      return studarr;
+		
 	}
+
 
 	
 	public Student[] getStudentsWithMaxAvgMark() {
